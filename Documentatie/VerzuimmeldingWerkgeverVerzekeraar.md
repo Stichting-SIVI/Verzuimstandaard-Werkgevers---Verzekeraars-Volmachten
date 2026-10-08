@@ -4,7 +4,7 @@ Business chain: *Verzuim Datamodel*
 
 Transaction type: *Basistransactie Verzuim*
 
-Functional message: ***Verzuimmelding Werkgever Verzekeraar 2024***
+Functional message: ***Verzuimmelding Werkgever Verzekeraar 2025***
 
 Actor group: *Verzuimstandaard Werkgever \> Verzekeraar*
 
@@ -12,7 +12,7 @@ XML Tag Set: *Standard XML*
 
 **Copyright SIVI**
 
-17 juli 2024
+8 juli 2025
 
 Summary
 
@@ -29,6 +29,8 @@ Werkgever 1..\*, V
 2 Communicatie 1..9, V
 
 1 Werknemer 1..\*, V
+
+2 Bankrekening 0..1, F
 
 2 Partner 0..1, F
 
@@ -78,7 +80,7 @@ BERICHT ALGEMEEN 1..1, V
 
 *code list:* Versienummer bericht (subset selected)
 
-00010 Versienummer 10
+00011 Versienummer 11
 
 **<u>Aanmaakdatum</u>**
 
@@ -243,9 +245,20 @@ van andere werkgevers in de administratie van de arbodienst.
 
 **<u>Identificatie bij verzekeraar</u>**
 
-**Identificatie werkgever bij verzekeraar F an..40**
+**Identificatie werkgever bij verzekeraar V an..40**
 
 *xml tag:* IDWrkgvrVerzekeraar
+
+**<u>Identificatie bij UWV</u>**
+
+**Identificatie werkgever bij UWV F an..40**
+
+*xml tag:* IdWrkgvrUWV
+
+De identificatie die het UWV heeft aangeleverd aan de werkgever
+
+waardoor de werkgever wordt onderscheiden van andere werkgevers in de
+administratie van het UWV.
 
 **<u>Loonbelasting / loonheffingen</u>**
 
@@ -454,22 +467,6 @@ binnen de loonadministratie bestaat.
 
 **<u>Wijze waarop de gegevens verwerkt moeten worden</u>**
 
-**Verwerking, code V an2**
-
-*xml tag:* VrwrkCd
-
-*code list:* Verwerkingscode (all selected)
-
-01 Nieuw
-
-02 Gewijzigd
-
-03 Vervallen
-
-04 Ter identificatie en/ of ter informatie
-
-05 Correctie
-
 **Ingangsdatum mutatie F an10**
 
 *xml tag:* IngdatMut
@@ -627,29 +624,45 @@ uitgegeven identificatie wordt niet hergebruikt.
 
 *xml tag:* IdWrknmrOud
 
+**Valt werknemer onder no-risk polis J/N F a1**
+
+*xml tag:* WrknmrNoriskJN
+
+*code list:* Logische eenheid (subset selected)
+
+J Ja
+
+N Nee
+
+BANKREKENING 0..1, F
+
+*werkgever - werknemer - BANKREKENING*
+
+*xml tag:* BnkGiro
+
+**<u>Gegevens rekeningnummer</u>**
+
+**IBAN F an..34**
+
+*xml tag:* Iban
+
+Het wereldwijde unieke nummer van een bankrekening.
+
+Norminstantie: ISO - 13616
+
+**BIC F an..11**
+
+*xml tag:* Bic
+
+De unieke (internationale) identificatie van een bank.
+
+Norminstantie: SWIFT
+
 PARTNER 0..1, F
 
 *werkgever - werknemer - PARTNER*
 
 *xml tag:* Prtnr
-
-**<u>Wijze waarop de gegevens verwerkt moeten worden</u>**
-
-**Verwerking, code V an2**
-
-*xml tag:* VrwrkCd
-
-*code list:* Verwerkingscode (all selected)
-
-01 Nieuw
-
-02 Gewijzigd
-
-03 Vervallen
-
-04 Ter identificatie en/ of ter informatie
-
-05 Correctie
 
 **<u>Naamgegevens</u>**
 
@@ -950,22 +963,6 @@ DIENSTVERBAND 1..99, V
 *xml tag:* Dnstvbnd
 
 **<u>Wijze waarop de gegevens verwerkt moeten worden</u>**
-
-**Verwerking, code V an2**
-
-*xml tag:* VrwrkCd
-
-*code list:* Verwerkingscode (all selected)
-
-01 Nieuw
-
-02 Gewijzigd
-
-03 Vervallen
-
-04 Ter identificatie en/ of ter informatie
-
-05 Correctie
 
 **Ingangsdatum mutatie F an10**
 
@@ -1282,24 +1279,6 @@ na afsluiting van een arbeidsovereenkomst.
 
 Dit wordt ook wel aanstelling genoemd.
 
-**<u>Wijze waarop de gegevens verwerkt moeten worden</u>**
-
-**Verwerking, code V an2**
-
-*xml tag:* VrwrkCd
-
-*code list:* Verwerkingscode (all selected)
-
-01 Nieuw
-
-02 Gewijzigd
-
-03 Vervallen
-
-04 Ter identificatie en/ of ter informatie
-
-05 Correctie
-
 **<u>Identificerende gegevens arbeidsrelatie</u>**
 
 **Identificatie arbeidsrelatie V an..40**
@@ -1610,6 +1589,22 @@ Bron: Arbo Unie
 03 Pleegzorgverlof
 
 **<u>Uitkerings gegevens</u>**
+
+**<u>Arbeidsconflict</u>**
+
+**Arbeidsconflict, J/N F a1**
+
+*xml tag:* ArbCnflJN
+
+Indicatie dat sprake is van een abeidsconflict.
+
+*code list:* Logische eenheid (all selected)
+
+J Ja
+
+N Nee
+
+O Onbekend
 
 **<u>Arbeidstherapie</u>**
 
