@@ -16,10 +16,8 @@ Een publicatie bestaat uit:
 
 - releasenotes;
 - toelichting op het koppelvlak;
-- functionele beschrijvingen van de berichten;
-- XSD's van de berichten;
-- berichtcontroles en coderingen;
-- een ZIP-bestand met alle XSD's;
+- functionele beschrijvingen van het verzuimbericht;
+- een ZIP-bestand met de bijbehorende XSD;
 - een ZIP-bestand met de volledige release.
 
 ## Releasevergelijking
